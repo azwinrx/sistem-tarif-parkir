@@ -24,13 +24,13 @@ func hitungBiayaParkir(jamParkir int, statusMember bool, hariLibur bool) int {
 
 	if jamParkir <= 2 {
 		totalBiaya = tarifDasar
-	}else if jamParkir < 0{
+	}else if jamParkir <= 0{
 		fmt.Print("Masukkan jam parkir yang valid\n")
 	}else{
 		totalBiaya = tarifDasar + (tarifJamKetiga * cekJamLebih(jamParkir))
 	}
 
-	if statusMember == true{
+	if statusMember{
 		if jamParkir <=5{
 			totalBiaya = totalBiaya - (totalBiaya * 50 / 100)
 		}else{
@@ -39,7 +39,7 @@ func hitungBiayaParkir(jamParkir int, statusMember bool, hariLibur bool) int {
 		
 	}
 
-	if hariLibur == true{
+	if hariLibur{
 		totalBiaya+=tarifHariLibur
 	}
 
@@ -50,7 +50,6 @@ func hitungBiayaParkir(jamParkir int, statusMember bool, hariLibur bool) int {
 func main() {
     // Test case 1: 4 jam, bukan member, bukan hari libur
     hitungBiayaParkir(4, false, false)
-    
     // Test case 2: 2 jam, member, hari libur
     hitungBiayaParkir(2, true, true)
 }
