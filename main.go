@@ -24,11 +24,10 @@ func hitungBiayaParkir(jamParkir int, statusMember bool, hariLibur bool) int {
 
 	if jamParkir <= 2 {
 		totalBiaya = tarifDasar
-	}else if jamParkir > 2 {
-		totalBiaya = tarifDasar + (tarifJamKetiga * cekJamLebih(jamParkir))
+	}else if jamParkir < 0{
+		fmt.Print("Masukkan jam parkir yang valid\n")
 	}else{
-		fmt.Print("Input jam parkir tidak valid\n")
-		return 0
+		totalBiaya = tarifDasar + (tarifJamKetiga * cekJamLebih(jamParkir))
 	}
 
 	if statusMember == true{
